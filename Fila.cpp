@@ -175,6 +175,9 @@ int main()
     }
     printf("El 'frente' de la 'Fila3' vacia es: %d\n", frente(Fila3));
     printf("La cantidad de items de la 'Fila3' es: %d\n", longitud(Fila3));
+    puts("\nPresione la tecla ENTER para continuar.");
+    fflush(stdin);
+    getchar();
     puts("Uso la funcion 'EXTRAER_N_ESIMO' con la 'Fila3'");
     puts("Muestro la 'Fila3' antes de usar la funcion:");
     mostrar(Fila3);
@@ -194,19 +197,21 @@ int main()
 }
 
 Fila EXTRAER_N_ESIMO(Fila Fila1, int N){
-    if (esFilaVacia(Fila1))
+    if (esFilaVacia(Fila1) || longitud(Fila1) < N)
     {
-        return filaVacia();
+        return Fila1;
     }
     else
     {
-        if (longitud(Fila1) == N)
+        if (N == 1)
         {
-            return EXTRAER_N_ESIMO(invertir(defila(invertir(Fila1))), N);
+            return defila(Fila1);
         }
         else
         {
-            return enfila(EXTRAER_N_ESIMO(invertir(defila(invertir(Fila1))), N), frente(invertir(Fila1)));
+            item aux = frente(Fila1);
+            Fila faux = EXTRAER_N_ESIMO(defila(Fila1), N - 1);
+            return concat(enfila(filaVacia(), aux), faux);
         }
     }
 }
