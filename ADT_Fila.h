@@ -201,14 +201,15 @@ Fila defilarN(Fila Fila1, int N){
     }
     else
     {
-        if (longitud(Fila1) > N)
+        if (N != 0)
         {
-            item dato = Fila1.final->dato;
-            return enfila(invertir(defila(invertir(Fila1))), dato);
+            //item dato = Fila1.final->dato;
+            Fila1 = defila(Fila1);
+            return defilarN(Fila1, N - 1);
         }
         else
         {
-            return filaVacia();
+            return Fila1;
         }
         
     }
