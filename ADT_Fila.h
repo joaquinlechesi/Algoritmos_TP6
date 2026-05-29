@@ -145,9 +145,10 @@ Fila concat(Fila Fila1, Fila Fila2){
             }
             else
             {
-                
-                item dato1 = Fila2.final->dato;
-                return enfila(concat(Fila1, invertir(defila(invertir(Fila2)))), dato1);
+                item dato1 = Fila2.frente->dato;
+                Fila2.frente = Fila2.frente->siguiente;
+                return concat(enfila(Fila1, dato1), Fila2);
+                //return enfila(concat(Fila1, invertir(defila(invertir(Fila2)))), dato1);
             }
         }
     }
