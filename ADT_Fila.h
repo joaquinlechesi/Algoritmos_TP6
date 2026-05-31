@@ -223,13 +223,18 @@ Fila singular(Fila Fila1){
     }
     else
     {
-        if (pertenece(invertir(defila(invertir(Fila1))), frente(invertir(Fila1))))
+        Fila aux = Fila1;
+        Fila1.frente = Fila1.frente->siguiente;
+        if (pertenece(Fila1, aux.frente->dato))
         {
-            return singular(invertir(defila(invertir(Fila1))));
+            aux = defila(aux);
+            return singular(aux);
         }
         else
         {
-            return enfila(invertir(defila(invertir(Fila1))), frente(invertir(Fila1)));
+            item item1 = aux.frente->dato;
+            return concat(enfila(filaVacia(), item1), singular(Fila1));
+            //return enfila(invertir(defila(invertir(Fila1))), frente(invertir(Fila1)));
         }
         
     }
