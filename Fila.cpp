@@ -129,6 +129,9 @@ int main()
     Fila2 = enfila(Fila2, 15);
     Fila2 = enfila(Fila2, 10);
     puts("'Fila2 = enfila(Fila2, 4)'\n'Fila2 = enfila(Fila2, 9)'\n'Fila2 = enfila(Fila2, 15)'\n'Fila2 = enfila(Fila2, 10)'");
+    puts("Muestro la 'Fila2'");
+    mostrar(Fila2);
+    printf("La cantidad de items de la 'Fila2' es: %d\n", longitud(Fila2));
     puts("'Fila1' y 'Fila2' son iguales?");
     if (igualf(Fila1, Fila2))
     {
@@ -189,6 +192,16 @@ int main()
     puts("Muestro la 'Fila3' despues de usar la funcion:");
     mostrar(Fila3);
     printf("La cantidad de items de la 'Fila3' es: %d\n", longitud(Fila3));
+    puts("Agrego el elemento 3 a la 'Fila3'");
+    puts("'Fila3 = enfila(Fila3, 4)'");
+    Fila3 = enfila(Fila3, 4);
+    puts("Uso la operacion 'singular' en la 'Fila3'");
+    puts("Muestro la 'Fila3' antes de usar la operacion:");
+    mostrar(Fila3);
+    puts("'Fila3 = singular(Fila3)'");
+    Fila3 = singular(Fila3);
+    puts("Muestro la 'Fila3' despues de usar la operacion:");
+    mostrar(Fila3);
     
     puts("\nPresione la tecla ENTER para finalizar.");
     fflush(stdin);
