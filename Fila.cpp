@@ -162,7 +162,7 @@ int main()
     }
     printf("El 'frente' de la 'Fila2' vacia es: %d\n", frente(Fila2));
     printf("La cantidad de items de la 'Fila2' es: %d\n", longitud(Fila2));
-    puts("Concateno ambas filas en una nueva fila llamada 'Fila3':");
+    puts("Concateno la 'Fila1' y la 'Fila2' en una nueva fila llamada 'Fila3':");
     Fila Fila3 = filaVacia();
     Fila3 = concat(Fila1, Fila2);
     puts("Muestro la 'Fila3'");
@@ -178,9 +178,6 @@ int main()
     }
     printf("El 'frente' de la 'Fila3' vacia es: %d\n", frente(Fila3));
     printf("La cantidad de items de la 'Fila3' es: %d\n", longitud(Fila3));
-    puts("\nPresione la tecla ENTER para continuar.");
-    fflush(stdin);
-    getchar();
     puts("Uso la funcion 'EXTRAER_N_ESIMO' con la 'Fila3'");
     puts("Muestro la 'Fila3' antes de usar la funcion:");
     mostrar(Fila3);

@@ -127,27 +127,27 @@ Fila invertir(Fila Fila1){
 }
 
 Fila concat(Fila Fila1, Fila Fila2){
-    if (Fila1.frente == NULL && Fila2.frente == NULL)
+    if (esFilaVacia(Fila1) && esFilaVacia(Fila2))
     {
         return filaVacia();
     }
     else
     {
-        if (Fila1.frente == NULL)
+        if (esFilaVacia(Fila1))
         {
             return Fila2;
         }
         else
         {
-            if (Fila2.frente == NULL)
+            if (esFilaVacia(Fila2))
             {
                 return Fila1;
             }
             else
             {
-                item dato1 = Fila2.frente->dato;
-                Fila2.frente = Fila2.frente->siguiente;
-                return concat(enfila(Fila1, dato1), Fila2);
+                item frenteFila2 = frente(Fila2);
+                //Fila2.frente = Fila2.frente->siguiente;
+                return concat(enfila(Fila1, frenteFila2), defila(Fila2));
                 //return enfila(concat(Fila1, invertir(defila(invertir(Fila2)))), dato1);
             }
         }
