@@ -196,7 +196,7 @@ item final(Fila Fila1){
 }
 
 Fila defilarN(Fila Fila1, int N){
-    if (Fila1.frente == NULL)
+    if (esFilaVacia(Fila1))
     {
         return filaVacia();
     }
@@ -205,8 +205,8 @@ Fila defilarN(Fila Fila1, int N){
         if (N != 0)
         {
             //item dato = Fila1.final->dato;
-            Fila1 = defila(Fila1);
-            return defilarN(Fila1, N - 1);
+            //Fila1 = defila(Fila1);
+            return defilarN(defila(Fila1), N - 1);
         }
         else
         {
