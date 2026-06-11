@@ -217,23 +217,23 @@ Fila defilarN(Fila Fila1, int N){
 }
 
 Fila singular(Fila Fila1){
-    if (Fila1.frente == NULL)
+    if (esFilaVacia(Fila1))
     {
         return filaVacia();
     }
     else
     {
-        Fila aux = Fila1;
-        Fila1.frente = Fila1.frente->siguiente;
-        if (pertenece(Fila1, aux.frente->dato))
+        item frenteAux = frente(Fila1);
+        Fila1 = defila(Fila1);
+        if (pertenece(Fila1, frenteAux))
         {
-            aux = defila(aux);
-            return singular(aux);
+            //aux = defila(aux);
+            return singular(Fila1);
         }
         else
         {
-            item item1 = aux.frente->dato;
-            return concat(enfila(filaVacia(), item1), singular(Fila1));
+            //item item1 = aux.frente->dato;
+            return concat(enfila(filaVacia(), frenteAux), singular(Fila1));
             //return enfila(invertir(defila(invertir(Fila1))), frente(invertir(Fila1)));
         }
         
