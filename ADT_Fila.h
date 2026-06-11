@@ -114,15 +114,15 @@ bool igualf(Fila Fila1, Fila Fila2){ //Funciona
 }
 
 Fila invertir(Fila Fila1){
-    if (Fila1.frente == NULL)
+    if (esFilaVacia(Fila1))
     {
         return filaVacia();
     }
     else
     {
-        item dato = Fila1.frente->dato;
-        Fila1.frente = Fila1.frente->siguiente;
-        return enfila(invertir(Fila1), dato);
+        item dato = frente(Fila1);
+        //Fila1.frente = Fila1.frente->siguiente;
+        return enfila(invertir(defila(Fila1)), dato);
     }
 }
 
