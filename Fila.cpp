@@ -162,10 +162,14 @@ int main()
     {
         puts("\tNo");
     }
-    printf("El 'frente' de la 'Fila2' vacia es: %d\n", frente(Fila2));
+    printf("El 'frente' de la 'Fila2' es: %d\n", frente(Fila2));
+    printf("El 'final' de la 'Fila2' es: %d\n", final(Fila2));
     printf("La cantidad de items de la 'Fila2' es: %d\n", longitud(Fila2));
-    puts("Concateno la 'Fila1' y la 'Fila2' en una nueva fila llamada 'Fila3':");
+    puts("Defino una nueva fila llamada 'Fila3'");
     Fila Fila3 = filaVacia();
+    printf("El 'frente' de la 'Fila3' es: %d\n", frente(Fila3));
+    printf("El 'final' de la 'Fila3' es: %d\n", final(Fila3));
+    puts("Concateno la 'Fila1' y la 'Fila2' en 'Fila3':");
     Fila3 = concat(Fila1, Fila2);
     puts("Muestro la 'Fila3'");
     mostrar(Fila3);

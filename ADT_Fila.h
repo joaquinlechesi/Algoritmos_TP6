@@ -177,16 +177,14 @@ void mostrar(Fila Fila1){
             Fila1.frente = Fila1.frente->siguiente;
             printf(" %d ", dato);
             return mostrar(Fila1);
-        }
-        
-    }
-    
+        }        
+    }    
 }
 
 // 1)
 
 item final(Fila Fila1){
-    if (Fila1.frente == NULL)
+    if (esFilaVacia(Fila1))
     {
         return indefinido;
     }
