@@ -79,7 +79,7 @@ bool pertenece(Fila Fila1, item datoBuscar){
     }
     else
     {
-        if (Fila1.frente->dato == datoBuscar)
+        if (frente(Fila1) == datoBuscar)
         {
             return true;
         }
