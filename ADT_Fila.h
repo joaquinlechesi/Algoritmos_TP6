@@ -12,14 +12,14 @@ struct nodo {
 struct Fila {
     struct nodo * frente;
     struct nodo * final;
-    int cantidad;
+    int longitud;
 };
 
 Fila filaVacia(){ //constructora primitiva
     Fila nuevaFila;
     nuevaFila.frente = NULL;
     nuevaFila.final = NULL;
-    nuevaFila.cantidad = 0;
+    nuevaFila.longitud = 0;
     return nuevaFila;
 }
 
@@ -52,7 +52,7 @@ Fila enfila(Fila Fila1, item nuevoDato){
         Fila1.final->siguiente = nuevoNodo;
         Fila1.final = nuevoNodo;
     }
-    Fila1.cantidad++;
+    Fila1.longitud++;
     return Fila1;
 }
 
@@ -62,14 +62,14 @@ Fila defila(Fila Fila1){
         nodo * aux = new(nodo);
         aux = Fila1.frente;
         Fila1.frente = Fila1.frente->siguiente;
-        Fila1.cantidad--;
+        Fila1.longitud--;
         delete(aux);
     }
     return Fila1;
 }
 
 int longitud(Fila Fila1){
-    return Fila1.cantidad;
+    return Fila1.longitud;
 }
 
 bool pertenece(Fila Fila1, item datoBuscar){
