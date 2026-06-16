@@ -211,7 +211,6 @@ Fila defilarN(Fila Fila1, int N){
         {
             return Fila1;
         }
-        
     }
 }
 
@@ -235,6 +234,5 @@ Fila singular(Fila Fila1){
             return concat(enfila(filaVacia(), frenteAux), singular(Fila1));
             //return enfila(invertir(defila(invertir(Fila1))), frente(invertir(Fila1)));
         }
-        
     }
 }
