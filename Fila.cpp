@@ -133,6 +133,8 @@ int main()
     mostrar(Fila2);
     printf("La cantidad de items de la 'Fila2' es: %d\n", longitud(Fila2));
     puts("'Fila1' y 'Fila2' son iguales?");
+    //Fila1 = filaVacia();
+    //Fila2 = filaVacia();
     if (igualf(Fila1, Fila2))
     {
         puts("\tSi");

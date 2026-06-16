@@ -92,19 +92,20 @@ bool pertenece(Fila Fila1, item datoBuscar){
 }
 
 bool igualf(Fila Fila1, Fila Fila2){ //Funciona
-    if (Fila1.frente == NULL && Fila2.frente == NULL)
+    if (esFilaVacia(Fila1) && esFilaVacia(Fila2))
     {
         return true;
     }
     else
     {
-        if (Fila1.frente != NULL && Fila2.frente != NULL)
+        if (frente(Fila1) == frente(Fila2))
         {
-            item dato1 = Fila1.frente->dato;
-            item dato2 = Fila2.frente->dato;
+            // item dato1 = frente(Fila1);
+            // item dato2 = frente(Fila2);
             Fila1.frente = Fila1.frente->siguiente;
             Fila2.frente = Fila2.frente->siguiente;
-            return dato1 == dato2 && igualf(Fila1, Fila2);
+            //return dato1 == dato2 && igualf(Fila1, Fila2);
+            return igualf(Fila1, Fila2);
         }
         else
         {
