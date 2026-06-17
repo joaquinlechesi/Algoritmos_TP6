@@ -205,6 +205,10 @@ int main()
     Fila3 = singular(Fila3);
     puts("Muestro la 'Fila3' despues de usar la operacion:");
     mostrar(Fila3);
+    puts("Uso la operacion 'defilaN' en 'Fila3'");
+    Fila3 = defilarN(Fila3, 4);
+    mostrar(Fila3);
+    printf("El 'frente' de la 'Fila3' vacia es: %d\n", frente(Fila3));
     
     puts("\nPresione la tecla ENTER para finalizar.");
     fflush(stdin);
