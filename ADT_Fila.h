@@ -195,9 +195,9 @@ item final(Fila Fila1){
 }
 
 Fila defilarN(Fila Fila1, int N){
-    if (esFilaVacia(Fila1))
+    if (esFilaVacia(Fila1) || longitud(Fila1) < N)
     {
-        return filaVacia();
+        return Fila1;
     }
     else
     {
