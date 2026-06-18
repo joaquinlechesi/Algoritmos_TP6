@@ -127,8 +127,8 @@ Fila invertir(Fila Fila1){
     }
 }
 
-Fila concat(Fila Fila1, Fila Fila2){
-    if (esFilaVacia(Fila1) && esFilaVacia(Fila2))
+Fila concat(Fila Fila1, Fila * Fila2){
+    if (esFilaVacia(Fila1) && esFilaVacia(*Fila2))
     {
         return filaVacia();
     }
@@ -136,20 +136,25 @@ Fila concat(Fila Fila1, Fila Fila2){
     {
         if (esFilaVacia(Fila1))
         {
-            return Fila2;
+            return *Fila2;
         }
         else
         {
-            if (esFilaVacia(Fila2))
+            if (esFilaVacia(*Fila2))
             {
                 return Fila1;
             }
             else
             {
-                item frenteFila2 = frente(Fila2);
+                //item frenteFila2 = frente(Fila2);
                 //Fila2.frente = Fila2.frente->siguiente;
-                return concat(enfila(Fila1, frenteFila2), defila(Fila2));
+                //return concat(enfila(Fila1, frenteFila2), defila(Fila2));
                 //return enfila(concat(Fila1, invertir(defila(invertir(Fila2)))), dato1);
+                Fila1.longitud = Fila1.longitud + longitud(*Fila2);
+                Fila1.final->siguiente = Fila2->frente;
+                Fila1.final = Fila2->final;
+                *Fila2 = filaVacia();
+                return Fila1;
             }
         }
     }
@@ -215,9 +220,9 @@ Fila defilarN(Fila Fila1, int N){
 }
 
 Fila singular(Fila Fila1){
-    if (esFilaVacia(Fila1))
+    if (esFilaVacia(Fila1) || longitud(Fila1) == 1)
     {
-        return filaVacia();
+        return Fila1;
     }
     else
     {
@@ -230,9 +235,13 @@ Fila singular(Fila Fila1){
         }
         else
         {
+            //mostrar(Fila1);
             //item item1 = aux.frente->dato;
-            return concat(enfila(filaVacia(), frenteAux), singular(Fila1));
+            //return enfila(nuevaFila, frente(singular(Fila1)));
+            //return concat(enfila(filaVacia(), frenteAux), singular(Fila1));
             //return enfila(invertir(defila(invertir(Fila1))), frente(invertir(Fila1)));
+            Fila nuevaFila = enfila(singular(Fila1), frenteAux);
+            return (nuevaFila);
         }
     }
 }

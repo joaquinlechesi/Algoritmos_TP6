@@ -170,9 +170,10 @@ int main()
     printf("El 'frente' de la 'Fila3' es: %d\n", frente(Fila3));
     printf("El 'final' de la 'Fila3' es: %d\n", final(Fila3));
     puts("Concateno la 'Fila1' y la 'Fila2' en 'Fila3':");
-    Fila3 = concat(Fila1, Fila2);
+    Fila3 = concat(Fila1, &Fila2);
     puts("Muestro la 'Fila3'");
     mostrar(Fila3);
+    //printf("El 'final' de la 'Fila2' es: %d\n", final(Fila2));
     puts("Es 'Fila3' una fila vacia?");
     if (esFilaVacia(Fila3))
     {
@@ -182,6 +183,7 @@ int main()
     {
         puts("\tNo");
     }
+    printf("Muestro 'frente' de la 'Fila2' para verificar que no tenga items despues de usar la operacion 'concat': %d\n", frente(Fila2));
     printf("El 'frente' de la 'Fila3' vacia es: %d\n", frente(Fila3));
     printf("La cantidad de items de la 'Fila3' es: %d\n", longitud(Fila3));
     puts("Uso la funcion 'EXTRAER_N_ESIMO' con la 'Fila3'");
@@ -205,6 +207,9 @@ int main()
     Fila3 = singular(Fila3);
     puts("Muestro la 'Fila3' despues de usar la operacion:");
     mostrar(Fila3);
+    printf("La cantidad de items de la 'Fila3' es: %d\n", longitud(Fila3));
+    fflush(stdin);
+    getchar();
     puts("Uso la operacion 'defilaN' en 'Fila3'");
     Fila3 = defilarN(Fila3, 4);
     mostrar(Fila3);
@@ -225,13 +230,15 @@ Fila EXTRAER_N_ESIMO(Fila Fila1, int N){
     {
         if (N == 1)
         {
-            return defila(Fila1);
+            return EXTRAER_N_ESIMO(defila(Fila1), N - 1);
         }
         else
         {
             item aux = frente(Fila1);
-            Fila faux = EXTRAER_N_ESIMO(defila(Fila1), N - 1);
-            return concat(enfila(filaVacia(), aux), faux);
+            //Fila faux = EXTRAER_N_ESIMO(defila(Fila1), N - 1);
+            //return concat(enfila(filaVacia(), aux), faux);
+            //return enfila(enfila(filaVacia(), aux), frente(EXTRAER_N_ESIMO(defila(Fila1), N - 1)));
+            return enfila(EXTRAER_N_ESIMO(defila(Fila1), N - 1), aux);
         }
     }
 }
